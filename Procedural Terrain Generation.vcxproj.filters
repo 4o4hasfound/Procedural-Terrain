@@ -1,0 +1,293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="來源檔案">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="標頭檔">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="資源檔">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="來源檔案\src">
+      <UniqueIdentifier>{809793f6-3ce3-41ff-b555-3cf6f7abe862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders">
+      <UniqueIdentifier>{e4dd3dc2-a256-469e-9a36-eebcc2bc5015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Imgui">
+      <UniqueIdentifier>{147b4130-f991-4002-9392-fcfc57635a23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="來源檔案\compile">
+      <UniqueIdentifier>{568182bc-6c51-4d7c-a47d-4e97f54f8ea7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\models">
+      <UniqueIdentifier>{491794bf-316f-414c-9b87-6ac09c013134}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_demo.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_draw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_impl_glfw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_tables.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\TerrainGeneration\imgui\imgui_widgets.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Skybox.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunk.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ComputeShader.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shader.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="compile\glad.c">
+      <Filter>來源檔案\compile</Filter>
+    </ClCompile>
+    <ClCompile Include="compile\stb.cpp">
+      <Filter>來源檔案\compile</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>來源檔案</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Object.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FrameBufferObject.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScreenShader.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\App.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Plane.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terrain.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gui.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Water.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Model.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Terrain2.cpp">
+      <Filter>來源檔案\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\TerrainGeneration\imgui\imgui.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_glfw.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_opengl3.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_opengl3_loader.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imgui_internal.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imstb_rectpack.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imstb_textedit.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imstb_truetype.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\TerrainGeneration\imgui\imconfig.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Chunk.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ComputeShader.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shader.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Skybox.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Object.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ScreenShader.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Plane.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\App.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Terrain.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Gui.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\FrameBufferObject.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Water.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Model.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Terrain2.hpp">
+      <Filter>標頭檔</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\debug.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\default.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\default.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\simpleDepthShader.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\simpleDepthShader.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Skybox.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Skybox.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\water.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\water.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\debug.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess.tesc">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess.tese">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\HeightMap.comp">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\screen.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\screen.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\shadow.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\shadow.tesc">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\shadow.tese">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\shadow.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\noiseMap.comp">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\sun.geom">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\sun.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\sun.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess2.frag">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess2.tesc">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess2.tese">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+    <None Include="shaders\Tess2.vert">
+      <Filter>資源檔\shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>
