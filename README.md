@@ -6,7 +6,12 @@
 **ScreenShot**: Press F2 to take a screen shot. It will be stored in the image direcctory  
 **Water**: If you find the water moving too fast, it has something to do with the time, so press Q to reset the time!  
 
-## Warning
+## ScreenShots
+![ScreenShot2](https://github.com/4o4hasfound/Procedural-Terrain/assets/138118407/a7e180e3-571f-4cc1-8b2f-a024223cdb81)
+![ScreenShot1](https://github.com/4o4hasfound/Procedural-Terrain/assets/138118407/bc83bc5e-6abd-4ae2-b809-898edac2b95c)
+
+
+### Warning
 This code may have commented code or debug code that were left out by me :)  
 Many code were copied from the following youtubers:  
 - Thin Matrix
