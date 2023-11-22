@@ -7,7 +7,7 @@ bool ScreenShader::initialized = false;
 ScreenShader::ScreenShader(const std::string fragmentPath) {
 	initializeQuad();
 	shad = new Shader();
-	shad->AttachShader("shaders/screen.vert", VERT)
+	shad->AttachShader("shaders/Screen/screen.vert", VERT)
 		->AttachShader(fragmentPath, FRAG)
 		->LinkProgram();
 

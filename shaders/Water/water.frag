@@ -162,16 +162,12 @@ void main()
     vec4 reflectColor = texture(reflectionTexture, reflectTexCoords);
     vec4 refractColor = texture(refractionTexture, refractTexCoords); 
     
-//    vec4 normalMapColor = texture(normalMap, distortedTexCoords);
     mat3 TBN;
-    vec3 normalMapColor = computeNormals(vec3(worldPosition+0.0*((moveFactor+waterTileCount)*tiling)), TBN);
+    vec3 normal = computeNormals(vec3(worldPosition+0.0*((moveFactor+waterTileCount)*tiling)), TBN);
     if (length(toCameraVector)>15000.0){
-        normalMapColor = vec3(0.0, 1.0, 0.0);
+        normal = vec3(0.0, 1.0, 0.0);
     }
-	normalMapColor = mix(normalMapColor, vec3(0.0, 1.0, 0.0), 0.1);
-//    vec3 normal = vec3(normalMapColor.r * 2.0 - 1.0, normalMapColor.b * 3.0, normalMapColor.g * 2.0 - 1.0);
-    
-    vec3 normal = normalize(normalMapColor);
+	normal = normalize(mix(normal, vec3(0.0, 1.0, 0.0), 0.1));
 
     vec3 viewVector = normalize(toCameraVector);
     float refractiveFactor = dot(viewVector, normal);
@@ -179,8 +175,6 @@ void main()
     
     vec3 halfwayDir = normalize(lightDir + viewVector);
 
-    //vec3 reflectedLight = reflect(normalize(lightDir), normal);
-    //float specular = max(dot(reflectedLight, viewVector), 0.0);
     float specular = pow(max(dot(normal, halfwayDir), 0.0), shineDamper);
     vec3 specularHighlights = lightColor * specular * reflectivity;
 

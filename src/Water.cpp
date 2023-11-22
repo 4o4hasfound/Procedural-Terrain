@@ -8,11 +8,9 @@ Water::Water()
 
 Water::Water(float size): Size(size) {
     shader = new Shader();
-    shader->AttachShader("shaders/water.vert", VERT)
-          ->AttachShader("shaders/water.frag", FRAG)
+    shader->AttachShader("shaders/Water/water.vert", VERT)
+          ->AttachShader("shaders/Water/water.frag", FRAG)
           ->LinkProgram();
-    //dudv = Texture("textures/water/Dudv.png");
-    //normal = Texture("textures/water/Normal.png");
 	vertices = genNonSymPlaneUniform(glm::vec3(-Size/2.0, 0.0, -Size/2.0), glm::vec3(-Size/2.0, 0.0, Size/2), glm::vec3(Size/2, 0.0, Size/2.0), glm::vec3(Size/2, 0.0, -Size/2), 1);
 	indices = genPlaneInd(1);
     setupBuffer();

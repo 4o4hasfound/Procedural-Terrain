@@ -196,25 +196,20 @@
     <ClInclude Include="src\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\debug.frag" />
-    <None Include="shaders\debug.vert" />
-    <None Include="shaders\default.frag" />
-    <None Include="shaders\default.vert" />
-    <None Include="shaders\HeightMap.comp" />
-    <None Include="shaders\noiseMap.comp" />
-    <None Include="shaders\screen.frag" />
-    <None Include="shaders\screen.vert" />
-    <None Include="shaders\Skybox.frag" />
-    <None Include="shaders\Skybox.vert" />
-    <None Include="shaders\sun.frag" />
-    <None Include="shaders\sun.geom" />
-    <None Include="shaders\sun.vert" />
-    <None Include="shaders\Tess.frag" />
-    <None Include="shaders\Tess.tesc" />
-    <None Include="shaders\Tess.tese" />
-    <None Include="shaders\Tess.vert" />
-    <None Include="shaders\water.frag" />
-    <None Include="shaders\water.vert" />
+    <None Include="shaders\HeightMap\HeightMap.comp" />
+    <None Include="shaders\Screen\screen.frag" />
+    <None Include="shaders\Screen\screen.vert" />
+    <None Include="shaders\SkyBox\Skybox.frag" />
+    <None Include="shaders\SkyBox\Skybox.vert" />
+    <None Include="shaders\Sun\sun.frag" />
+    <None Include="shaders\Sun\sun.geom" />
+    <None Include="shaders\Sun\sun.vert" />
+    <None Include="shaders\Terrain\Tess.frag" />
+    <None Include="shaders\Terrain\Tess.tesc" />
+    <None Include="shaders\Terrain\Tess.tese" />
+    <None Include="shaders\Terrain\Tess.vert" />
+    <None Include="shaders\Water\water.frag" />
+    <None Include="shaders\Water\water.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

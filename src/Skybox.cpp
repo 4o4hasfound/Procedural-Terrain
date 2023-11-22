@@ -12,8 +12,8 @@ void Skybox::Init() {
     SetupSkybox();
     cubemapTexture = loadCubeMap();
     shader = new Shader();
-    shader->AttachShader("shaders/Skybox.vert", VERT)
-          ->AttachShader("shaders/Skybox.frag", FRAG)
+    shader->AttachShader("shaders/SkyBox/Skybox.vert", VERT)
+          ->AttachShader("shaders/SkyBox/Skybox.frag", FRAG)
           ->LinkProgram();
 }
 

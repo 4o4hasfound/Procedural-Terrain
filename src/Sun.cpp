@@ -11,9 +11,9 @@ Sun::Sun() {
     glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
 
     shader = new Shader();
-    shader->AttachShader("shaders/sun.vert", VERT)
-        ->AttachShader("shaders/sun.frag", FRAG)
-        ->AttachShader("shaders/sun.geom", GEOM)
+    shader->AttachShader("shaders/Sun/sun.vert", VERT)
+        ->AttachShader("shaders/Sun/sun.frag", FRAG)
+        ->AttachShader("shaders/Sun/sun.geom", GEOM)
         ->LinkProgram();
 
 }

@@ -21,5 +21,4 @@ void main()
     gl_Position= clipSpace;
     toCameraVector = cameraPos - worldPosition.xyz;
     textureCoords = (aPos.xz + cameraPos.xz + Size/2.0) / Size * tiling;
-    //textureCoords = vec2(aPos.x / 2.0 + 0.5, aPos.y / 2.0 + 0.5) * tiling; 
 }  

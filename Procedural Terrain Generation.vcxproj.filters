@@ -25,8 +25,23 @@
     <Filter Include="來源檔案\compile">
       <UniqueIdentifier>{568182bc-6c51-4d7c-a47d-4e97f54f8ea7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="資源檔\models">
-      <UniqueIdentifier>{491794bf-316f-414c-9b87-6ac09c013134}</UniqueIdentifier>
+    <Filter Include="資源檔\shaders\HeightMap">
+      <UniqueIdentifier>{246cfc12-5d60-44f9-b6fd-00791ced18c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders\Terrain">
+      <UniqueIdentifier>{482753c8-fa33-4c3c-8a57-cf3d8db77b10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders\Water">
+      <UniqueIdentifier>{e7cfd5de-7e6e-44c1-8f60-e3e529ec17e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders\Sun">
+      <UniqueIdentifier>{ef6ee7c4-0ee8-4270-b03f-e50447382d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders\Screen">
+      <UniqueIdentifier>{2182e32f-2932-4c99-89cc-9604968449a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="資源檔\shaders\SkyBox">
+      <UniqueIdentifier>{5f3d76fe-0a4e-4e12-b940-b237b5e12a59}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -181,62 +196,47 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\debug.vert">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Screen\screen.frag">
+      <Filter>資源檔\shaders\Screen</Filter>
     </None>
-    <None Include="shaders\default.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Screen\screen.vert">
+      <Filter>資源檔\shaders\Screen</Filter>
     </None>
-    <None Include="shaders\default.vert">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\SkyBox\Skybox.frag">
+      <Filter>資源檔\shaders\SkyBox</Filter>
     </None>
-    <None Include="shaders\Skybox.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\SkyBox\Skybox.vert">
+      <Filter>資源檔\shaders\SkyBox</Filter>
     </None>
-    <None Include="shaders\Skybox.vert">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Sun\sun.frag">
+      <Filter>資源檔\shaders\Sun</Filter>
     </None>
-    <None Include="shaders\water.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Sun\sun.geom">
+      <Filter>資源檔\shaders\Sun</Filter>
     </None>
-    <None Include="shaders\water.vert">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Sun\sun.vert">
+      <Filter>資源檔\shaders\Sun</Filter>
     </None>
-    <None Include="shaders\debug.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Terrain\Tess.tese">
+      <Filter>資源檔\shaders\Terrain</Filter>
     </None>
-    <None Include="shaders\Tess.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Terrain\Tess.vert">
+      <Filter>資源檔\shaders\Terrain</Filter>
     </None>
-    <None Include="shaders\Tess.tesc">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Terrain\Tess.frag">
+      <Filter>資源檔\shaders\Terrain</Filter>
     </None>
-    <None Include="shaders\Tess.tese">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Terrain\Tess.tesc">
+      <Filter>資源檔\shaders\Terrain</Filter>
     </None>
-    <None Include="shaders\Tess.vert">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Water\water.vert">
+      <Filter>資源檔\shaders\Water</Filter>
     </None>
-    <None Include="shaders\HeightMap.comp">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\Water\water.frag">
+      <Filter>資源檔\shaders\Water</Filter>
     </None>
-    <None Include="shaders\screen.frag">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\screen.vert">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\noiseMap.comp">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\sun.geom">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\sun.vert">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\sun.frag">
-      <Filter>資源檔\shaders</Filter>
+    <None Include="shaders\HeightMap\HeightMap.comp">
+      <Filter>資源檔\shaders\HeightMap</Filter>
     </None>
   </ItemGroup>
 </Project>

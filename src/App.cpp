@@ -20,7 +20,7 @@ App::App() {
     waterReflection      = new FrameBufferOBJ(990, 540);
     waterRefraction     = new FrameBufferOBJ(990, 540);
     shadow              = new FrameBufferOBJ(1980, 1080);
-    screenShader        = new ScreenShader("shaders/screen.frag");
+    screenShader        = new ScreenShader("shaders/Screen/screen.frag");
     water               = new Water(terrain->getChunkSize() * terrain->getTerrainSize() * 2);
     sun                 = new Sun();
 
