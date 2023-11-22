@@ -23,14 +23,10 @@ Water::~Water() {
 }
 
 void Water::Draw(unsigned reflect, unsigned refract, unsigned refractDepth, float time) {
+    glEnable(GL_CULL_FACE);
     moveFactor += MOVE_SPEED * time;
-    //if (moveFactor > 1.0) {
-    //    waterTileCount+=1.0;
-    //    moveFactor = moveFactor - glm::floor(moveFactor);
-    //}
 
     shader->use();
-	//view = glm::mat4(glm::mat3(view));
     shader->setFloat("height", height);
     shader->setInt("reflectionTexture", 0);
     shader->setInt("refractionTexture", 1);

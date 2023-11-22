@@ -6,16 +6,12 @@ Terrain::Terrain() {
 }
 Terrain::Terrain(int terrainsize, int chunksize) : terrainSize(terrainsize), chunkSize(chunksize) {
 	shader = new Shader();
-	shader->AttachShader("shaders/Tess.vert", VERT)
-		->AttachShader("shaders/Tess.tesc", TCS)
-		->AttachShader("shaders/Tess.tese", TES)
-		->AttachShader("shaders/Tess.frag", FRAG)
+	shader->AttachShader("shaders/Terrain/Tess.vert", VERT)
+		->AttachShader("shaders/Terrain/Tess.tesc", TCS)
+		->AttachShader("shaders/Terrain/Tess.tese", TES)
+		->AttachShader("shaders/Terrain/Tess.frag", FRAG)
 		->LinkProgram();
-	modelShad = new Shader();
-	modelShad->AttachShader("shaders/default.vert", VERT)
-		->AttachShader("shaders/default.frag", FRAG)
-		->LinkProgram();
-	cmpShader = new ComputeShader("shaders/HeightMap.comp");
+	cmpShader = new ComputeShader("shaders/HeightMap/HeightMap.comp");
 	Update();
 	lastCameraPos = camera->Position;
 	int divisions = 2;
@@ -35,14 +31,17 @@ Terrain::~Terrain() {
 }
 
 void Terrain::SetupTextures() {
-	grass = Texture("textures/grass/Albedo.jpg");
-	grassNor = Texture("textures/grass/Normal.jpg");
-	rock = Texture("textures/soil/Albedo.jpg");
-	rockNor = Texture("textures/soil/Normal.jpg");
+	grass		= Texture("textures/grass/Albedo.jpg");
+	grassNor	= Texture("textures/grass/Normal.jpg");
+	rock		= Texture("textures/soil/Albedo.jpg");
+	rockNor		= Texture("textures/soil/Normal.jpg");
 }
 
 void Terrain::Draw() {
+	glEnable(GL_CULL_FACE);
+	glEnable(GL_CLIP_DISTANCE0);
 	glEnable(GL_DEPTH_TEST);
+
 	shader->use();
 	shader->setInt("grass", 0);
 	shader->setInt("grassNor", 1);
@@ -52,6 +51,7 @@ void Terrain::Draw() {
 	shader->setInt("heightMap", 5);
 	shader->setFloat("size", chunkSize+1.0);
 	shader->setFloat("chunkSize", chunkSize + 1.0);
+
 	glActiveTexture(GL_TEXTURE0);
 	grass.Bind();
 	glActiveTexture(GL_TEXTURE1);
@@ -62,44 +62,30 @@ void Terrain::Draw() {
 	rockNor.Bind();
 	glActiveTexture(GL_TEXTURE4);
 	rockDis.Bind();
-	//modelShad->use();
-	//modelShad->setFloat("size", chunkSize + 1.0);
+
 	for (int i = 0; i < chunks.size(); i++) {
-		glEnable(GL_CLIP_DISTANCE0);
-		shader->use();
 		shader->setVec2("chunkPos", chunks[i]->x, chunks[i]->y);
+
 		glActiveTexture(GL_TEXTURE5);
 		glBindTexture(GL_TEXTURE_2D, chunks[i]->heightmap);
 		glBindVertexArray(VAO);
 		glDrawElements(GL_PATCHES, indices.size(), GL_UNSIGNED_INT, 0);
-		//glDisable(GL_CULL_FACE);
-		//glEnable(GL_CLIP_DISTANCE1);
-		//for (int j = chunks[i]->x; j < chunks[i]->x + chunkSize; j += chunkSize) {
-		//	for (int k = chunks[i]->y; k < chunks[i]->y + chunkSize; k += chunkSize) {
-		//		modelShad->use();
-		//		modelShad->setVec2("Pos", j, k);
-		//		modelShad->setInt("heightmap", 5);
-		//		model.Draw(modelShad);
-		//	}
-		//}
-		//glEnable(GL_CULL_FACE);
 	}
+	glDisable(GL_CLIP_DISTANCE0);
 }
 
 void Terrain::setupBuffer() {
 	glGenVertexArrays(1, &VAO);
-	//glCreateVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
-	//glCreateBuffers(1, &VBO);
 	glGenBuffers(1, &EBO);
-	//glCreateBuffers(1, &EBO);
 	glBindVertexArray(VAO);
+
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
+	
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(indices[0]), indices.data(), GL_STATIC_DRAW);
-	//glNamedBufferData(VBO, vertices.size() * sizeof(vertices[0]), vertices.data(), GL_STATIC_DRAW);
-	//glNamedBufferData(EBO, indices.size() * sizeof(indices[0]), indices.data(), GL_STATIC_DRAW);
+
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(1);
@@ -109,10 +95,6 @@ void Terrain::setupBuffer() {
 
 Shader* Terrain::getShad() {
 	return shader;
-}
-
-Shader* Terrain::getModelShad() {
-	return modelShad;
 }
 
 void Terrain::Update() {
@@ -138,9 +120,11 @@ int Terrain::getChunkSize()
 }
 
 void Terrain::UpdateChunks() {
-	std::vector<std::pair<int, int> >exist;
+	// Iterate through the square space of chunks around the camera
+	// Find the existed chunks and push it into the exist vector, 
+	// and push the missing chunk's information ( its position ) into toGenerate
+	std::vector<std::pair<int, int> > exist;
 	exist.reserve(chunks.size());
-	//std::unordered_map<std::pair<int, int>, bool, pairhash> exist;
 	std::vector<std::shared_ptr<Chunk> > newChunks;
 	newChunks.reserve(chunks.size());
 	glm::vec2 position(glm::floor(camera->Position.x / chunkSize) * chunkSize,
@@ -148,9 +132,7 @@ void Terrain::UpdateChunks() {
 	double dis = terrainSize * terrainSize * chunkSize * chunkSize;
 	toGenerate.clear();
 	std::sort(chunks.begin(), chunks.end(), ChunkCMP());
-#pragma omp parallel for
 	for (int row = -terrainSize; row <= terrainSize; row++) {
-#pragma omp parallel for
 		for (int col = -terrainSize; col <= terrainSize; col++) {
 			if (col * col + row * row <= terrainSize * terrainSize) {
 				std::pair<int, int> p = { position.x + col * chunkSize, position.y + row * chunkSize };
@@ -197,18 +179,8 @@ Chunk::Chunk() {
 
 }
 
-Chunk::Chunk(float x, float y, unsigned size, unsigned int texture):x(x), y(y), size(size), heightmap(texture) {
+Chunk::Chunk(float x, float y, unsigned size, unsigned int texture):x(x), y(y), heightmap(texture) {
 	glBindTexture(GL_TEXTURE_2D, heightmap);
-	data.resize(size);
-	for (int i = 0; i < size; i++) data[i].resize(size);
-
-	//glGetTexImage(GL_TEXTURE_2D, 0, GL_R16F, GL_UNSIGNED_BYTE, data[0].data());
-	//for (int i = 0; i < size; i++) {
-	//	for (int j = 0; j < size; j++) {
-	//		std::cout << data[i][j] << " ";
-	//	}
-	//	std::cout << "\n";
-	//}
 }
 
 Chunk::~Chunk() {

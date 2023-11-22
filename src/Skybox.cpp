@@ -18,6 +18,7 @@ void Skybox::Init() {
 }
 
 void Skybox::Draw(glm::mat4 proj, glm::mat4 view, float gamma) {
+    glEnable(GL_CULL_FACE);
     glDepthFunc(GL_LEQUAL);
     shader->use();
     view = glm::mat4(glm::mat3(view));

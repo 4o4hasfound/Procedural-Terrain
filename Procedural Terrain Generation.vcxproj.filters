@@ -60,9 +60,6 @@
     <ClCompile Include="src\Camera.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Chunk.cpp">
-      <Filter>來源檔案\src</Filter>
-    </ClCompile>
     <ClCompile Include="src\ComputeShader.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
@@ -80,9 +77,6 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>來源檔案</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Object.cpp">
-      <Filter>來源檔案\src</Filter>
     </ClCompile>
     <ClCompile Include="src\FrameBufferObject.cpp">
       <Filter>來源檔案\src</Filter>
@@ -102,16 +96,13 @@
     <ClCompile Include="src\Terrain.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Gui.cpp">
-      <Filter>來源檔案\src</Filter>
-    </ClCompile>
     <ClCompile Include="src\Water.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
     <ClCompile Include="src\Model.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Terrain2.cpp">
+    <ClCompile Include="src\Sun.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,9 +140,6 @@
     <ClInclude Include="src\Camera.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="src\Chunk.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="src\ComputeShader.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -162,9 +150,6 @@
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="src\Skybox.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Object.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
     <ClInclude Include="src\ScreenShader.h">
@@ -182,9 +167,6 @@
     <ClInclude Include="src\Terrain.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="src\Gui.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
     <ClInclude Include="src\FrameBufferObject.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -194,10 +176,7 @@
     <ClInclude Include="src\Model.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>標頭檔</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Terrain2.hpp">
+    <ClInclude Include="src\Sun.hpp">
       <Filter>標頭檔</Filter>
     </ClInclude>
   </ItemGroup>
@@ -209,12 +188,6 @@
       <Filter>資源檔\shaders</Filter>
     </None>
     <None Include="shaders\default.vert">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\simpleDepthShader.frag">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\simpleDepthShader.vert">
       <Filter>資源檔\shaders</Filter>
     </None>
     <None Include="shaders\Skybox.frag">
@@ -253,18 +226,6 @@
     <None Include="shaders\screen.vert">
       <Filter>資源檔\shaders</Filter>
     </None>
-    <None Include="shaders\shadow.vert">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\shadow.tesc">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\shadow.tese">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\shadow.frag">
-      <Filter>資源檔\shaders</Filter>
-    </None>
     <None Include="shaders\noiseMap.comp">
       <Filter>資源檔\shaders</Filter>
     </None>
@@ -275,18 +236,6 @@
       <Filter>資源檔\shaders</Filter>
     </None>
     <None Include="shaders\sun.frag">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\Tess2.frag">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\Tess2.tesc">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\Tess2.tese">
-      <Filter>資源檔\shaders</Filter>
-    </None>
-    <None Include="shaders\Tess2.vert">
       <Filter>資源檔\shaders</Filter>
     </None>
   </ItemGroup>

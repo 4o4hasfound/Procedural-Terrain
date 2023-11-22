@@ -7,106 +7,47 @@ App::App() {
 		std::cout << "Failed to init GLFW and GLAD\n";
 		return;
 	}
+
     srand(time(NULL));
     camera = new Camera(glm::vec3(rand() % 100000, 1000, rand() % 100000));
-    //camera = new Camera(glm::vec3(0, 1000, 0));
     Window::camera = camera;
     Terrain::camera = camera;
-    terrain = new Terrain(50, 500);
-    skybox = new Skybox();
-    gui = new GUI(this, window, terrain, camera);
+
+    terrain             = new Terrain(50, 500);
+    skybox              = new Skybox();
+    gui                 = new GUI(this, window, terrain, camera);
+    framebufferOBJ      = new FrameBufferOBJ(1980, 1080);
+    waterReflection      = new FrameBufferOBJ(990, 540);
+    waterRefraction     = new FrameBufferOBJ(990, 540);
+    shadow              = new FrameBufferOBJ(1980, 1080);
+    screenShader        = new ScreenShader("shaders/screen.frag");
+    water               = new Water(terrain->getChunkSize() * terrain->getTerrainSize() * 2);
+    sun                 = new Sun();
+
+    skybox->Init();
+    terrain->SetupTextures();
 }
 
 App::~App() {
-    std::cout << "Killed!";
-    //delete gui;
-    //delete camera;
-    //delete terrain;
-    //delete water;
-    //delete skybox;
-    //delete framebufferOBJ;
-    //delete waterReflection;
-    //delete waterRefraction;
-    ////delete shadow;
-    //delete screenShader;
-    //delete window;
+    delete gui;
+    delete camera;
+    delete terrain;
+    delete water;
+    delete sun;
+    delete skybox;
+    delete framebufferOBJ;
+    delete waterReflection;
+    delete waterRefraction;
+    delete screenShader;
+    delete window;
 }
 
 void App::Run() {
-	skybox->Init();
-	terrain->SetupTextures();
-    shader = terrain->getShad();
-    framebufferOBJ = new FrameBufferOBJ(1980, 1080);
-    waterReflection = new FrameBufferOBJ(990, 540);
-    waterRefraction = new FrameBufferOBJ(990, 540);
-    shadow = new FrameBufferOBJ(1980, 1080);
-    screenShader = new ScreenShader("shaders/screen.frag");
-    //depthShader = new Shader();
-    //depthShader->AttachShader("shaders/simpleDepthShader.vert", VERT)
-    //    ->AttachShader("shaders/simpleDepthShader.frag", FRAG)
-    //    ->LinkProgram();
-    water = new Water(terrain->getChunkSize()*terrain->getTerrainSize()*2);
-    sunShader = new Shader();
-    sunShader->AttachShader("shaders/sun.vert", VERT)
-        ->AttachShader("shaders/sun.frag", FRAG)
-        ->AttachShader("shaders/sun.geom", GEOM)
-        ->LinkProgram();
-    GLuint vbo;
-    glGenBuffers(1, &vbo);
-
-    float points[] = {
-        0.0, 0.0
-    };
-    
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(points), points, GL_STATIC_DRAW);
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, 0);
-    glEnable(GL_CULL_FACE);
-    Shader* modelShad = terrain->getModelShad();
 	while (window->continueLoop()) {
 		auto t_start = std::chrono::high_resolution_clock::now();
-		window->clearScreen(0.075f, 0.133f, 0.173f, 1.0f);
-		auto t_end = std::chrono::high_resolution_clock::now();
-        float dis = 2 * (camera->Position.y - Water::height);
-        glm::mat4 lightProjection = glm::ortho(1.0, 10000.0, 1.0, 10000.0, 1.0, 10000.0);
-        glm::mat4 lightView = glm::lookAt(glm::vec3(-2.0f, 4.0f, -1.0f),
-            glm::vec3(0.0f, 0.0f, 0.0f),
-            glm::vec3(0.0f, 1.0f, 0.0f));
-        glm::mat4 lightSpaceMatrix = lightProjection * lightView;
-        waterReflection->bind();
-        camera->Position.y -= dis;
-        camera->invertPitch();
-        RenderScene(glm::vec4(0.0, 1.0, 0.0, -Water::height + 30), true);
-        waterRefraction->bind();
-        camera->Position.y += dis;
-        camera->invertPitch();
-        RenderScene(glm::vec4(0.0, -1.0, 0.0, Water::height), true);
-        shadow->bind();
-   /*     depthShader->use();
-        depthShader->setMat4("lightSpaceMatrix", lightSpaceMatrix);*/
-        Shader* terrainShad = terrain->getShad();
-        terrainShad->use();
-        framebufferOBJ->bind();
-        glPolygonMode(GL_FRONT_AND_BACK, window->isWireframeActive() ? GL_LINE : GL_FILL);
-        RenderFinalScene();
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-        if (Window::genSrcShot) {
-            Window::genSrcShot = false;
-            GenSrcShot();
-        }
-        unbindCurrentFrameBuffer();
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, framebufferOBJ->tex);
-        Shader* shad = screenShader->getShader();
-        shad->use();
-        shad->setInt("text", 0);
-        shad->setFloat("gamma", gamma);
-        shad->setFloat("exposure", exposure);
-        screenShader->Draw();
+        Render();
+
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
@@ -115,11 +56,17 @@ void App::Run() {
             gui->Render();
         }
 		terrain->Update();
-		double elapsed_time_ms = std::chrono::duration<double, std::milli>(t_end - t_start).count();
-		window -> processInput(elapsed_time_ms);
-		glfwSwapInterval(1);
+
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        auto t_end = std::chrono::high_resolution_clock::now();
+        double dt = std::chrono::duration<double, std::milli>(t_end - t_start).count();
+
+        window->processInput(dt);
+
+        glfwSwapInterval(1);
+
 		window->swapBuffersAndPollEvents();
 	}
     ImGui_ImplOpenGL3_Shutdown();
@@ -166,23 +113,26 @@ void App::GenSrcShot() {
 }
 
 void App::RenderScene(glm::vec4 plane, bool doTess) {
-    glEnable(GL_CULL_FACE);
-    glClearColor(0.075f, 0.133f, 0.173f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    window->clearScreen(0.0f, 0.0f, 0.0f, 1.0f);
+
     glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT, nearPlane, farPlane);
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 id = glm::mat4(1.0);
     glm::mat4 model = glm::scale(id, glm::vec3(1.0));
-    glm::mat4 m = glm::scale(id, glm::vec3(0.5, 0.5, 0.5));
-    sunShader->use();
-    sunShader->setVec3("cameraPos", camera->Position);
-    sunShader->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
-    sunShader->setFloat("screenRatio", (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT);
-    sunShader->setMat4("proj", projection);
-    sunShader->setMat4("view", view);
-    glBindVertexArray(vao);
-    glDrawArrays(GL_POINTS, 0, 1);
-    glEnable(GL_CLIP_DISTANCE0);
+
+    Shader* shader;
+
+    //  -------------------- Sun -------------------- 
+    shader = sun->getShad();
+    shader->use();
+    shader->setVec3("cameraPos", camera->Position);
+    shader->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
+    shader->setFloat("screenRatio", (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT);
+    shader->setMat4("proj", projection);
+    shader->setMat4("view", view);
+    sun->Draw();
+
+    //  -------------------- Terrain -------------------- 
     shader = terrain->getShad();
     shader->use();
     shader->setVec3("cameraPos", camera->Position);
@@ -197,41 +147,47 @@ void App::RenderScene(glm::vec4 plane, bool doTess) {
     shader->setFloat("waterHeight", Water::height);
     shader->setFloat("gamma", gamma);
     terrain->Draw();
-    glDisable(GL_CLIP_DISTANCE0);
-    Shader* skyboxShad = skybox->getShad();
-    skyboxShad->use();
-    skyboxShad->setVec3("lightColor", glm::pow(lightColor[0], gamma), glm::pow(lightColor[1], gamma), glm::pow(lightColor[2], gamma));
+
+    //  -------------------- SkyBox -------------------- 
+    shader = skybox->getShad();
+    shader->use();
+    shader->setVec3("lightColor", glm::pow(lightColor[0], gamma), glm::pow(lightColor[1], gamma), glm::pow(lightColor[2], gamma));
     skybox->Draw(projection, view, gamma);
 }
 
 void App::RenderFinalScene() {
-    glClearColor(0.075f, 0.133f, 0.173f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    window->clearScreen(0.0f, 0.0f, 0.0f, 1.0f);
+
     glm::mat4 projection = glm::perspective(glm::radians(camera->Zoom), (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT, nearPlane, farPlane);
     glm::mat4 view = camera->GetViewMatrix();
     glm::mat4 id = glm::mat4(1.0);
     glm::mat4 model = glm::scale(id, glm::vec3(1.0));
-    sunShader->use();
-    sunShader->setVec3("cameraPos", camera->Position);
-    sunShader->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
-    sunShader->setFloat("screenRatio", (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT);
-    sunShader->setMat4("proj", projection);
-    sunShader->setMat4("view", view);
-    glBindVertexArray(vao);
-    glDrawArrays(GL_POINTS, 0, 1);
-    glDisable(GL_CULL_FACE);
-    Shader* shad = water->getShad();
-    shad->use();
-    shad->setMat4("projection", projection);
-    shad->setMat4("view", view);
-    shad->setVec3("cameraPos", camera->Position);
-    shad->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
-    shad->setFloat("near", nearPlane);
-    shad->setFloat("far", farPlane);
-    shad->setFloat("gamma", gamma);
+
+    Shader* shader;
+
+    //  -------------------- Sun -------------------- 
+    shader = sun->getShad();
+    shader->use();
+    shader->setVec3("cameraPos", camera->Position);
+    shader->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
+    shader->setFloat("screenRatio", (float)Window::SCR_WIDTH / (float)Window::SCR_HEIGHT);
+    shader->setMat4("proj", projection);
+    shader->setMat4("view", view);
+    sun->Draw();
+
+    //  -------------------- Water -------------------- 
+    shader = water->getShad();
+    shader->use();
+    shader->setMat4("projection", projection);
+    shader->setMat4("view", view);
+    shader->setVec3("cameraPos", camera->Position);
+    shader->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
+    shader->setFloat("near", nearPlane);
+    shader->setFloat("far", farPlane);
+    shader->setFloat("gamma", gamma);
     water->Draw(waterReflection->tex, waterRefraction->tex, waterRefraction->depthTex, window->getTime());
-    glEnable(GL_CULL_FACE);
-    glEnable(GL_CLIP_DISTANCE0);
+
+    //  -------------------- Terrain -------------------- 
     shader = terrain->getShad();
     shader->use();
     shader->setVec3("cameraPos", camera->Position);
@@ -247,21 +203,51 @@ void App::RenderFinalScene() {
     shader->setFloat("gamma", gamma);
     shader->setBool("usePar", usePar);
     shader->setFloat("height", height);
-    glm::mat4 m = glm::scale(id, glm::vec3(0.5));
-   /* Shader* modelShad = terrain->getModelShad();
-    modelShad->use();
-    modelShad->setMat4("projection", projection);
-    modelShad->setMat4("view", view);
-    modelShad->setMat4("model", model);
-    modelShad->setVec3("lightDir", lightDir[0], lightDir[1], lightDir[2]);
-    modelShad->setVec3("lightColor", lightColor[0], lightColor[1], lightColor[2]);
-    modelShad->setFloat("height", height);*/
     terrain->Draw();
-    glDisable(GL_CLIP_DISTANCE0);
-    Shader* skyboxShad = skybox->getShad();
-    skyboxShad->use();
-    skyboxShad->setVec3("lightColor", glm::pow(lightColor[0], gamma), glm::pow(lightColor[1], gamma), glm::pow(lightColor[2], gamma));
+
+    //  -------------------- SkyBox -------------------- 
+    shader = skybox->getShad();
+    shader->use();
+    shader->setVec3("lightColor", glm::pow(lightColor[0], gamma), glm::pow(lightColor[1], gamma), glm::pow(lightColor[2], gamma));
     skybox->Draw(projection, view, gamma);
+}
+
+void App::Render() {
+    window->clearScreen(0.0f, 0.0f, 0.0f, 1.0f);
+
+    float dis = 2 * (camera->Position.y - Water::height);
+    Shader* shader;
+
+    waterReflection->bind();
+    camera->Position.y -= dis;
+    camera->invertPitch();
+    RenderScene(glm::vec4(0.0, 1.0, 0.0, -Water::height + 30.0), true);
+
+    waterRefraction->bind();
+    camera->Position.y += dis;
+    camera->invertPitch();
+    RenderScene(glm::vec4(0.0, -1.0, 0.0, Water::height), true);
+
+    framebufferOBJ->bind();
+    glPolygonMode(GL_FRONT_AND_BACK, window->isWireframeActive() ? GL_LINE : GL_FILL);
+    RenderFinalScene();
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
+    if (Window::genSrcShot) {
+        Window::genSrcShot = false;
+        GenSrcShot();
+    }
+
+    unbindCurrentFrameBuffer();
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, framebufferOBJ->tex);
+    shader = screenShader->getShader();
+    shader->use();
+    shader->setInt("text", 0);
+    shader->setFloat("gamma", gamma);
+    shader->setFloat("exposure", exposure);
+    screenShader->Draw();
 }
 
 

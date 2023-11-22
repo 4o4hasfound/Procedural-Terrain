@@ -1,40 +1,35 @@
-﻿  main.cpp
-D:\Program\C++\Procedural Terrain Generation\src\App.h(74,39): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Program\C++\Procedural Terrain Generation\src\App.h(76,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  imgui_impl_opengl3.cpp
+  main.cpp
+D:\Program\C++\Procedural Terrain Generation\src\App.h(73,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Program\C++\Procedural Terrain Generation\src\App.h(75,19): warning C4305: 'initializing': truncation from 'double' to 'float'
   App.cpp
-D:\Program\C++\Procedural Terrain Generation\src\App.h(74,39): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Program\C++\Procedural Terrain Generation\src\App.h(76,19): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(48,72): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(120,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(132,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(132,26): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(138,29): warning C4305: '=': truncation from 'double' to 'T'
+D:\Program\C++\Procedural Terrain Generation\src\App.h(73,39): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Program\C++\Procedural Terrain Generation\src\App.h(75,19): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(11,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(24,89): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(66,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(78,31): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(78,26): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(84,29): warning C4305: '=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(140,22): warning C4305: '=': truncation from 'double' to 'T'
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(86,22): warning C4305: '=': truncation from 'double' to 'T'
           with
           [
               T=float
           ]
-D:\Program\C++\Procedural Terrain Generation\src\App.cpp(312,66): warning C4305: 'argument': truncation from 'double' to 'float'
-  ComputeShader.cpp
+D:\Program\C++\Procedural Terrain Generation\src\App.cpp(297,66): warning C4305: 'argument': truncation from 'double' to 'float'
   FrameBufferObject.cpp
-D:\Program\C++\Procedural Terrain Generation\src\FrameBufferObject.cpp(120,29): warning C4018: '<': signed/unsigned mismatch
-  Mesh.cpp
-D:\Program\C++\Procedural Terrain Generation\src\Mesh.cpp(12,65): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  Model.cpp
-  Plane.cpp
-  ScreenShader.cpp
-  Shader.cpp
-D:\Program\C++\Procedural Terrain Generation\src\Shader.cpp(49,9): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\FrameBufferObject.cpp(119,29): warning C4018: '<': signed/unsigned mismatch
+  Skybox.cpp
+  Sun.cpp
   Terrain.cpp
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(55,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(75,64): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(175,20): warning C4018: '<': signed/unsigned mismatch
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(204,20): warning C4018: '<': signed/unsigned mismatch
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(56,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(57,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(76,64): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(160,20): warning C4018: '<': signed/unsigned mismatch
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
           with
           [
@@ -44,14 +39,14 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.3132
           [
               _Ty1=int
           ]
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(157): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(142): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
           with
           [
               T=float,
               _Other1=float,
               _Other2=float
           ]
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(157): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(142): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
           with
           [
               T=float,
@@ -72,13 +67,13 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.3132
           [
               _Ty1=int
           ]
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(159): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(144): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
           with
           [
               _Other1=float &,
               _Other2=float &
           ]
-D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(159): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(144): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
           with
           [
               _Other1=float &,
@@ -89,25 +84,22 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.3132
           [
               _Ty2=int
           ]
-  Terrain2.cpp
-D:\Program\C++\Procedural Terrain Generation\src\Terrain2.cpp(79,63): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  Texture.cpp
   Water.cpp
   Window.cpp
 D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(53,26): warning C4244: '=': conversion from 'GLint' to 'float', possible loss of data
 D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(54,27): warning C4244: '=': conversion from 'GLint' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(151,110): warning C4244: 'return': conversion from '_Rep' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(152,110): warning C4244: 'return': conversion from '_Rep' to 'float', possible loss of data
           with
           [
               _Rep=double
           ]
-D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(171,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(172,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(176,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(173,12): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(177,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(179,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(178,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(180,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(188,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(181,11): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Window.cpp(189,38): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   Generating Code...
 glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(context.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Debug\glfw3.pdb'; linking object as if no debug info
 glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(init.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Debug\glfw3.pdb'; linking object as if no debug info

@@ -10,19 +10,18 @@
 #include <time.h>
 #include <GLM/glm.hpp>
 #include <FreeImage.h>
-#include "../imgui/imgui.h"
-#include "../imgui/imgui_impl_glfw.h"
-#include "../imgui/imgui_impl_opengl3.h"
+#include "IMGUI/imgui.h"
+#include "IMGUI/imgui_impl_glfw.h"
+#include "IMGUI/imgui_impl_opengl3.h"
 #include "Window.h"
 #include "Camera.h"
 #include "Plane.h"
 #include "Terrain.h"
-#include "Terrain2.hpp"
 #include "Skybox.h"
 #include "FrameBufferObject.h"
 #include "ScreenShader.h"
 #include "Water.h"
-#include"Model.h"
+#include "Sun.hpp"
 
 class App;
 
@@ -75,27 +74,31 @@ public:
 	bool usePar = true;
 	float heightScale=0.1;
 private:
-	void InitGui();
-	void RenderGui();
-	void GenSrcShot();
 	GUI* gui;
 	Window* window;
 	Camera* camera;
 	Terrain* terrain;
 	Water* water;
-	Shader* shader;
+	Sun* sun;
+
 	Shader* depthShader;
 	Skybox* skybox;
-	Shader* sunShader;
 	FrameBufferOBJ* framebufferOBJ;
 	FrameBufferOBJ* waterReflection;
 	FrameBufferOBJ* waterRefraction;
 	FrameBufferOBJ* shadow;
 	ScreenShader* screenShader;
-	GLuint vao;
 	float nearPlane = 1.0, farPlane = 50000.0;
+
+	void InitGui();
+	void RenderGui();
+	void GenSrcShot();
+	void Render();
 	void RenderScene(glm::vec4 plane, bool doTess);
 	void RenderFinalScene();
+	void RenderSkyBox();
+	void RenderTerrain();
+	void RenderWater();
 	glm::mat4 ProjInfiniteFarPlane(float fov, float WHratio, float near, float far);
 };
 

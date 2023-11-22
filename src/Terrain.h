@@ -31,8 +31,6 @@ public:
 	~Chunk();
 	unsigned int heightmap;
 	float x, y;
-	unsigned size;
-	std::vector<std::vector<unsigned char> > data;
 };
 
 class ChunkPairCMP {
@@ -69,7 +67,6 @@ public:
 	void SetupTextures();
 	void Draw();
 	Shader* getShad();
-	Shader* getModelShad();
 	void Update();
 	void RenderShadow();
 	int getTerrainSize();
@@ -84,8 +81,6 @@ private:
 	ComputeShader* cmpShader;
 	ComputeShader* noiseMapShad;
 	ScreenShader* srcShader;
-	Shader* modelShad;
-	Model model;
 
 	std::vector<std::shared_ptr<Chunk> > chunks;
 	std::vector<glm::vec2> toGenerate;

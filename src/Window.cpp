@@ -88,6 +88,8 @@ void Window::processInput(float frameTime) {
 			camera->ProcessKeyboard(UP, frameTime);
 		if (glfwGetKey(this->w, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 			camera->ProcessKeyboard(DOWN, frameTime);
+		if (glfwGetKey(this->w, GLFW_KEY_Q) == GLFW_PRESS)
+			startTime = std::chrono::high_resolution_clock::now();
 
 		newState = glfwGetMouseButton(this->w, GLFW_MOUSE_BUTTON_RIGHT);
 
@@ -97,7 +99,6 @@ void Window::processInput(float frameTime) {
 			mouseCursorDisabled = !mouseCursorDisabled;
 			if (mouseCursorDisabled)
 				firstMouse = true;
-			//std::cout << "MOUSE R PRESSED!" << std::endl;
 		}
 
 		oldState = newState;
