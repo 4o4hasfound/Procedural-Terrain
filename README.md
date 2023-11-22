@@ -13,7 +13,7 @@
 
 ### Warning
 This code may have commented code or debug code that were left out by me :)  
-Many code were copied from the following youtubers:  
+Some of the code were copied from the following youtubers:  
 - Thin Matrix
 - Victor Gordan
 - Michael Grieco
