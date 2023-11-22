@@ -1,21 +1,59 @@
-﻿LINK : warning LNK4098: defaultlib 'MSVCRTD' conflicts with use of other libs; use /NODEFAULTLIB:library
-  Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 2712 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-glfw3.lib(input.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(input.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(window.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(window.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(monitor.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(monitor.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_window.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_window.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(init.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(init.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(context.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_joystick.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_joystick.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_time.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_time.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_thread.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_thread.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_monitor.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_monitor.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(wgl_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(wgl_context.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(egl_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(egl_context.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(osmesa_context.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(osmesa_context.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(win32_init.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(win32_init.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-glfw3.lib(vulkan.obj) : warning LNK4099: PDB 'glfw3.pdb' was not found with 'glfw3.lib(vulkan.obj)' or at 'D:\Program\C++\Procedural Terrain Generation\x64\Release\glfw3.pdb'; linking object as if no debug info
-  Procedural Terrain Generation.vcxproj -> D:\Program\C++\Procedural Terrain Generation\x64\Release\Procedural Terrain Generation.exe
+﻿  Terrain.cpp
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(52,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(53,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(72,64): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(156,20): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+          and
+          [
+              _Ty1=int
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(138): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              T=float,
+              _Other1=float,
+              _Other2=float
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(138): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              T=float,
+              _Other1=float,
+              _Other2=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,54): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+          and
+          [
+              _Ty2=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,16): warning C4244: 'initializing': conversion from 'float' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(140): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(140): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,54): warning C4244: 'initializing': conversion from 'float' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty2=int
+          ]

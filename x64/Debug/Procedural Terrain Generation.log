@@ -1,1 +1,59 @@
-﻿
+﻿  Terrain.cpp
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(52,36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(53,42): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(72,64): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(156,20): warning C4018: '<': signed/unsigned mismatch
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,16): warning C4244: 'initializing': conversion from '_Ty' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+          and
+          [
+              _Ty1=int
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(138): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              T=float,
+              _Other1=float,
+              _Other2=float
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(138): message : see reference to function template instantiation 'std::pair<int,int>::pair<T,T,0>(_Other1 &&,_Other2 &&) noexcept' being compiled
+          with
+          [
+              T=float,
+              _Other1=float,
+              _Other2=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,54): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+          and
+          [
+              _Ty2=int
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,16): warning C4244: 'initializing': conversion from 'float' to '_Ty1', possible loss of data
+          with
+          [
+              _Ty1=int
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(140): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
+D:\Program\C++\Procedural Terrain Generation\src\Terrain.cpp(140): message : see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\utility(190,54): warning C4244: 'initializing': conversion from 'float' to '_Ty2', possible loss of data
+          with
+          [
+              _Ty2=int
+          ]
