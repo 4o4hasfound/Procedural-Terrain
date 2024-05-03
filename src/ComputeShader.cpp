@@ -52,7 +52,7 @@ unsigned int ComputeShader::genTexture(unsigned int Width, unsigned int Height, 
 }
 
 void ComputeShader::Compute(unsigned int Width, unsigned int Height) {
-    glDispatchCompute(Width, Height, 1);
+    glDispatchCompute(Width / 8 + 1, Height / 8 + 1, 1);
     glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
 }
 

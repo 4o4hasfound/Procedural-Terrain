@@ -13,7 +13,7 @@ App::App() {
     Window::camera = camera;
     Terrain::camera = camera;
 
-    terrain             = new Terrain(50, 500);
+    terrain             = new Terrain(50, 560);
     skybox              = new Skybox();
     gui                 = new GUI(this, window, terrain, camera);
     framebufferOBJ      = new FrameBufferOBJ(1980, 1080);
@@ -221,12 +221,12 @@ void App::Render() {
     waterReflection->bind();
     camera->Position.y -= dis;
     camera->invertPitch();
-    RenderScene(glm::vec4(0.0, 1.0, 0.0, -Water::height + 30.0), true);
+    RenderScene(glm::vec4(0.0, 1.0, 0.0, -Water::height + 10.0), false);
 
     waterRefraction->bind();
     camera->Position.y += dis;
     camera->invertPitch();
-    RenderScene(glm::vec4(0.0, -1.0, 0.0, Water::height), true);
+    RenderScene(glm::vec4(0.0, -1.0, 0.0, Water::height), false);
 
     framebufferOBJ->bind();
     glPolygonMode(GL_FRONT_AND_BACK, window->isWireframeActive() ? GL_LINE : GL_FILL);

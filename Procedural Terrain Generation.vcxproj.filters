@@ -45,27 +45,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_demo.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_draw.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_impl_glfw.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_impl_opengl3.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_tables.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
-    <ClCompile Include="..\TerrainGeneration\imgui\imgui_widgets.cpp">
-      <Filter>Imgui</Filter>
-    </ClCompile>
     <ClCompile Include="src\Skybox.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
@@ -120,35 +99,29 @@
     <ClCompile Include="src\Sun.cpp">
       <Filter>來源檔案\src</Filter>
     </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_impl_opengl3.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_demo.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_draw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_impl_glfw.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_tables.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="Libraries\include\IMGUI\imgui_widgets.cpp">
+      <Filter>Imgui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\TerrainGeneration\imgui\imgui.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_glfw.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_opengl3.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imgui_impl_opengl3_loader.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imgui_internal.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imstb_rectpack.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imstb_textedit.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imstb_truetype.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
-    <ClInclude Include="..\TerrainGeneration\imgui\imconfig.h">
-      <Filter>Imgui</Filter>
-    </ClInclude>
     <ClInclude Include="src\Texture.h">
       <Filter>標頭檔</Filter>
     </ClInclude>
@@ -193,6 +166,33 @@
     </ClInclude>
     <ClInclude Include="src\Sun.hpp">
       <Filter>標頭檔</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imconfig.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imgui.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imgui_impl_glfw.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imgui_impl_opengl3.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imgui_impl_opengl3_loader.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imgui_internal.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imstb_rectpack.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imstb_textedit.h">
+      <Filter>Imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="Libraries\include\IMGUI\imstb_truetype.h">
+      <Filter>Imgui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

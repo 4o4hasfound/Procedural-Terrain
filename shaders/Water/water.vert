@@ -18,7 +18,7 @@ void main()
 {
     worldPosition = vec4(aPos.x + cameraPos.x, height, aPos.z + cameraPos.z, 1.0);
     clipSpace = projection * view * worldPosition;
-    gl_Position= clipSpace;
+    gl_Position= clipSpace; 
     toCameraVector = cameraPos - worldPosition.xyz;
     textureCoords = (aPos.xz + cameraPos.xz + Size/2.0) / Size * tiling;
 }  

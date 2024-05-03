@@ -31,7 +31,7 @@ void Water::Draw(unsigned reflect, unsigned refract, unsigned refractDepth, floa
     shader->setInt("dudvMap", 2);
     shader->setInt("normalMap", 3);
     shader->setInt("depthMap", 4);
-    shader->setFloat("moveFactor", moveFactor);
+    shader->setFloat("moveFactor", std::abs(std::fmod(moveFactor, 4000)-2000));
     shader->setFloat("Size", Size);
     shader->setFloat("tiling", 640.0);
     shader->setFloat("waterTileCount", waterTileCount);

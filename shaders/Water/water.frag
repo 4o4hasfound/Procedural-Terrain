@@ -19,8 +19,8 @@ uniform float tiling;
 uniform float waterTileCount;
 uniform float gamma;
 
-const float waveStrength = 0.01;
-const float shineDamper = 25.0;
+const float waveStrength = 0.001;
+const float shineDamper = 50.0;
 const float reflectivity = 0.8;
 
 vec3 lightColor = pow(vec3(1.0, 1.0, 1.0), vec3(gamma));
@@ -139,6 +139,18 @@ vec3 computeNormals(vec3 WorldPos, out mat3 TBN){
 	return n;
 }
 
+vec3 computeWaterNormals(vec2 WorldPos){
+	float st = 0.35;
+	float dhdu = (perlin((WorldPos.x + st), WorldPos.x + WorldPos.y, ((moveFactor+waterTileCount)*tiling)/2.0) - perlin((WorldPos.x - st), WorldPos.x + WorldPos.y, ((moveFactor+waterTileCount)*tiling)/2.0))/(2.0*st);
+	float dhdv = (perlin( WorldPos.x, (WorldPos.x + WorldPos.y + st), ((moveFactor+waterTileCount)*tiling)/2.0) - perlin(WorldPos.x, (WorldPos.x + WorldPos.y - st), ((moveFactor+waterTileCount)*tiling)/2.0))/(2.0*st);
+
+	vec3 X = vec3(1.0, dhdu, 1.0);
+	vec3 Z = vec3(0.0, dhdv, 1.0);
+
+	vec3 n = normalize(cross(Z,X));
+	return n;
+}
+
 void main()
 {   
     vec2 ndc = (clipSpace.xy/clipSpace.w)/2.0+0.5;
@@ -148,10 +160,12 @@ void main()
     float floorY = texture(refractionTexture, ndc).a;
 	float waterDepth = 1.0 - floorY;
     float waterDepthClamped = clamp(waterDepth*5.0, 0.0, 1.0);
-    vec2 distortedTexCoords = (texture(dudvMap, vec2(textureCoords.x + moveFactor, textureCoords.y)).rg * 2.0 - 1.0) * waveStrength * clamp(waterDepth / 1.0, 0.0, 1.0);
+    
+    mat3 TBN;
+    vec2 distortedTexCoords = (computeWaterNormals(vec2(textureCoords.x + moveFactor, textureCoords.y)).rg * 2.0 - 1.0) * waveStrength * clamp(waterDepth / 1.0, 0.0, 1.0);
     distortedTexCoords = textureCoords + vec2(distortedTexCoords.x, distortedTexCoords.y + moveFactor);
     
-    vec2 totalDistortion = (texture(dudvMap, distortedTexCoords).rg * 2.0 - 1.0) * waveStrength;
+    vec2 totalDistortion = (computeWaterNormals(distortedTexCoords).rg * 2.0 - 1.0) * waveStrength;
     refractTexCoords += totalDistortion;
     refractTexCoords = clamp(refractTexCoords, 0.001, 0.999);
 
@@ -162,7 +176,6 @@ void main()
     vec4 reflectColor = texture(reflectionTexture, reflectTexCoords);
     vec4 refractColor = texture(refractionTexture, refractTexCoords); 
     
-    mat3 TBN;
     vec3 normal = computeNormals(vec3(worldPosition+0.0*((moveFactor+waterTileCount)*tiling)), TBN);
     if (length(toCameraVector)>15000.0){
         normal = vec3(0.0, 1.0, 0.0);

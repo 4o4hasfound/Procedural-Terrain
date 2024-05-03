@@ -7,9 +7,10 @@
 #include <cmath>
 #include <chrono>
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <FreeImage.h>
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+#include "FreeImage.h"
+
 
 #include "Camera.h"
 #include "Terrain.h"

@@ -101,7 +101,7 @@ void Terrain::Update() {
 	if (!chunks.size() || glm::abs(camera->Position.x - lastCameraPos.x) > chunkSize || glm::abs(camera->Position.z - lastCameraPos.z) > chunkSize) {
 		UpdateChunks();
 	}
-	GenerateChunks(4);
+	GenerateChunks(8);
 }
 
 void Terrain::RenderShadow() {

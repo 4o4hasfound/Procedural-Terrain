@@ -1,6 +1,6 @@
 #version 430 core
 
-layout (local_size_x = 1, local_size_y = 1, local_size_z = 1) in;
+layout (local_size_x = 8, local_size_y = 8, local_size_z = 1) in;
 
 layout(r16f, binding = 0) uniform image2D HeightMap;
 
@@ -79,6 +79,6 @@ float noise(float x, float y, int octwaves) {
 
 void main(){
     ivec2 texelCoord = ivec2(gl_GlobalInvocationID.xy);
-	float Displacement = pow(noise((gl_WorkGroupID.x+pos.x), (gl_WorkGroupID.y+pos.y), 12), 5.0);
+	float Displacement = pow(noise((texelCoord.x+pos.x), (texelCoord.y+pos.y), 12), 5.0);
 	imageStore(HeightMap, texelCoord, vec4(Displacement, 0.0, 0.0, 0.0));
 }

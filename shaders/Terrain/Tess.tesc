@@ -1,4 +1,4 @@
-#version 410 core
+#version 430 core
 
 // Quads
 layout (vertices = 4) out;
@@ -12,7 +12,7 @@ uniform float size;
 uniform bool doTess;
 
 const int MIN_TES = 4;
-const int MAX_TES = 12;
+const int MAX_TES = 24;
 const float MIN_DIST = 0.0;
 const float MAX_DIST = 2000.0;
 const float tessLev = 10.0;
@@ -23,9 +23,9 @@ int SmoothTessLevel(int MinTess, int MaxTess, float MinDis, float MaxDis, float 
 
 
 int getTessLevel(float dis){
-    if (dis <= size * 4) return SmoothTessLevel(25, 30, 0.0, size * 4, dis);
-    else if (dis <= size * 6) return SmoothTessLevel(25, 15, size * 4, size * 6, dis);
-    else return SmoothTessLevel(3, 15, size * 6, MAX_DIST, dis);
+    if (dis <= size * 4) return SmoothTessLevel(50, 60, 0.0, size * 4, dis);
+    else if (dis <= size * 6) return SmoothTessLevel(50, 30, size * 4, size * 6, dis);
+    else return SmoothTessLevel(6, 30, size * 6, MAX_DIST, dis);
 }
 
 void main()
